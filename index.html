@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Cellular Automata</title>
+	<script type="text/javascript" src="http://24.16.255.56:8888/socket.io/socket.io.js"></script>
+	
+	
+	<script type="text/javascript" src="./utils.js"></script>
+	<script type="text/javascript" src="./ExpManager.js"></script>
+	<script type="text/javascript" src="./presets.js"></script>
+    <script type="text/javascript" src="./assetmanager.js"></script>
+    <script type="text/javascript" src="./gameengine.js"></script>
+	<script type="text/javascript" src="./histogram.js"></script>
+	<script type="text/javascript" src="./colorCircle.js"></script>
+    <script type="text/javascript" src="./graph.js"></script>
+	<script type="text/javascript" src="./graph 2.js"></script>
+	<script type="text/javascript" src="./agent.js"></script>
+	<script type="text/javascript" src="./cell.js"></script>
+    <script type="text/javascript" src="./main.js"></script>
+	<script type="text/javascript" src="./automata.js"></script>
+</head>
+<body>
+    <canvas id="gameWorld" width="2000" height="800" style="border: 1px solid; background: white"></canvas>
+		<button type = "button" onclick = "saveGame();">Save</button>
+		<button type = "button" onclick = "loadGame();">Load</button>
+		Survival time: <input type="text" name="survive" id="survive" value=""><br>
+		Pause: <input type="checkbox" name="Pause" id="Pause"><br>
+		<input type="radio" name="density" value="sparse" id = "sparse" onclick="preset_sparse()"> Sparse<br>
+		<input type="radio" name="density" value="dense" id = "dense" onclick="preset_dense()"> Dense<br>
+		<br>
+		<input type="radio" name="stability" value="stable" id = "stable" onclick="preset_stable()"> Stable<br>
+		<input type="radio" name="stability" value="volatile" id = "volatile" onclick="preset_volatile()"> Volatile<br>
+		
+		<input type="radio" name="cellOpt" value="cellStable" id = "cellStable" onclick="preset_cell_stable()"> Cell Stable<br>
+		<input type="radio" name="cellOpt" value="cellMid" id = "cellMid" onclick="preset_cell_mid()"> Cell Mid<br>
+		<input type="radio" name="cellOpt" value="cellVol" id = "cellVol" onclick="preset_cell_volatile()"> Cell Vol<br>
+		<br>
+		<input type="radio" name="agentOpt" value="agentStable" id = "agentStable" onclick="preset_agent_stable()"> Agent Stable<br>
+		<input type="radio" name="agentOpt" value="agentMid" id = "agentMid" onclick="preset_agent_mid()"> Agent Mid<br>
+		<input type="radio" name="agentOpt" value="agentVol" id = "agentVol" onclick="preset_agent_volatile()"> Agent Vol<br>
+		
+		<br><br>
+		DL/DB Time: <input type="text" name="waitDLDB" id="waitDLDB" value="15000"><br>
+		DB Send: <input type="checkbox" name="DB" id="DB" checked><br>
+        Download: <input type="checkbox" name="download" id="download"><br>
+        AI Enabled: <input type="checkbox" name="brainPower" id="brainPower" checked><br>
+        Healing Toggle: <input type="checkbox" name="healingToggle" id="healingToggle" checked><br>
+		Wait Turns: <input type="text" name="waitTurns" id="waitTurns" value="300"><br>
+		Max Hits: <input type="text" name="maxHits" id="maxHits" value="3"><br>
+		Spawning Population: <input type="text" name="spawningPopulation" id="spawningPopulation" value="50"><br>
+		Death Chance Agent: <input type="text" name="deathChanceAgent" id="deathChanceAgent" value="0.015"><br>
+		Cell Growth Rate: <input type="text" name="cellGrowthRate" id="cellGrowthRate" value="0.4"><br>
+		Cell Decay Rate: <input type="text" name="cellDecayRate" id="cellDecayRate" value="0.005"><br>
+		Reproduction Chance: <input type="text" name="reproductionChance" id="reproductionChance" value="0.5"><br>
+		Offspring Volatility: <input type="text" name="offspringVolatility" id="offspringVolatility" value="0.01"><br>
+		Cell Spawn: <input type="text" name="cellSpawn" id="cellSpawn" value="0.0005"><br>
+		Cell Offspring Volatility: <input type="text" name="cellOffspringVolatility" id="cellOffspringVolatility" value="0.01"><br>
+		Heal Poison Range: <input type="text" name="healPoisonRange" id="healPoisonRange" value=".2"><br>
+		Attract Avoid Range: <input type="text" name="attrAvoidRange" id="attrAvoidRange" value="30"><br>
+        <input type="submit" value="Start Simulation" id = "simStart" onclick="return initiliaze_game();">
+      
+</body>
+</html>
